@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Main Page</title>
+</head>
+<body>
+    <header>
+        <!--  Top of Navigation -->
+        <h1>The Knight At The Museum</h1>
+    </header>
+    <nav id="nav">
+        <ul>
+            <li>Stories</li>
+        </ul>
+    </nav>
+    <div id="main">
+        <!-- content -->
+        <div id ="container">
+            <h2> Latest Reading</h2>
+        </div>
+    </div>
+</body>
+<script>
+ const storyBtn = document.querySelector('#nav');
+ const storyHeight = storyBtn.offsetHeight;
+ const storyTop = storyBtn.offsetTop;
+console.log(storyTop);
+ function fixedNav() {
+     if (window.scrollY >= storyTop && !document.body.classList.contains('fixedNav')) {
+         console.log("line 34");
+         document.body.classList.add('fixedNav');
+         document.body.style.paddingTop = `${storyHeight*2}px`;
+     } else if (window.scrollY <storyTop && document.body.classList.contains('fixedNav')) {
+        document.body.classList.remove('fixedNav');
+        document.body.style.paddingTop = 0;
+     }
+ }
+
+ window.addEventListener('scroll', fixedNav);
+
+</script>
+</html>
